@@ -3,10 +3,10 @@
 Tässä React Native -projektissa on hyödynnetty useita teknologioita ja kirjastoja:
 
 ### React Native: 
-Koko sovellus on rakennettu React Native -kehyksellä, joka mahdollistaa ristialustaisen mobiilisovelluskehityksen JavaScriptillä.
+Koko sovellus on rakennettu React Native -kehyksellä, joka mahdollistaa alustojen välisen mobiilisovelluskehityksen JavaScriptillä.
 
 ### Expo: 
-Expo on kehitysympäristö ja alusta React Native -sovellusten kehittämiseen. Tässä projektissa Expoa käytetään SMS-kirjaston kanssa, joka mahdollistaa tekstiviestien lähettämisen puhelimen oletusviestisovelluksen kautta.
+Expo on kehitysympäristö ja alusta React Native -sovellusten kehittämiseen. Tässä projektissa Expoa käytetään mm. SMS-kirjaston kanssa, joka mahdollistaa tekstiviestien lähettämisen puhelimen oletusviestisovelluksen kautta.
 
 ### Firebase: 
 Firebase on Googlen tarjoama palvelu, joka tarjoaa erilaisia pilvipalveluita sovelluskehittäjille. Tässä projektissa käytetään Firebase-tietokantaa sovelluksen taustalla tallentamaan ja hallitsemaan Pokemon-tietoja.
