@@ -3,6 +3,7 @@ import { View, Text, TextInput, Button, FlatList, StyleSheet, ScrollView } from 
 import { initializeApp } from 'firebase/app';
 import { getDatabase, push, remove, ref, onValue } from 'firebase/database';
 
+// Firebase-konfiguraatio
 const firebaseConfig = {
   apiKey: "AIzaSyCYkNraCBVHEWcP8oqRUm27qH2BFr8pEfw",
   authDomain: "pokemon-95e84.firebaseapp.com",
@@ -16,12 +17,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
-
 const MyPokemon = ({ navigation }) => {
   const [type, setType] = useState('');
   const [pokemon, setPokemon] = useState('');
   const [pokemons, setPokemons] = useState([]);
 
+  // Haetaan pokemonien tiedot Firebase-tietokannasta ja päivitetään ne komponentin tilaan ensimmäisellä renderöinnillä. 
   useEffect(() => {
     const pokemonRef = ref(database, 'pokemon/');
     onValue(pokemonRef, (snapshot) => {
@@ -35,6 +36,7 @@ const MyPokemon = ({ navigation }) => {
     });
   }, []);
 
+  // Tallentaan uuden pokemonin nimen ja tyypin Firebase-tietokantaan, jos molemmat kentät ovat täytettyinä. Syötekenttä tyhjäksi.
   const savePokemon = () => {
     if (pokemon && type) {
       const pokemonRef = ref(database, 'pokemon/');
@@ -44,6 +46,7 @@ const MyPokemon = ({ navigation }) => {
     }
   };
 
+  // Poistetaan pokemon Firebase-tietokannasta ja päivitetään komponentin tila poistamalla kyseinen pokemon listalta.
   const tradePokemon = (pokemonKey) => {
     remove(ref(database, `pokemon/${pokemonKey}`))
       .then(() => {
