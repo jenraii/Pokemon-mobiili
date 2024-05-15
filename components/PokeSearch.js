@@ -8,6 +8,7 @@ const PokeSearch = ({ navigation }) => {
   const [error, setError] = useState(null);
   const [imageUrl, setImageUrl] = useState('');
 
+ // Etsitään pokemonien tiedot PokeAPI-rajapinnasta hakusanan avulla ja tallennetaan ne komponentin tilaan.
   const searchPokemon = async () => {
     try {
       const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${keyword.toLowerCase()}`);
@@ -22,10 +23,12 @@ const PokeSearch = ({ navigation }) => {
     }
   };
 
+  // Muutetaan pituus metreiksi.
   const convertHeightToMeters = (height) => {
     return (height / 10).toFixed(2); 
   };
 
+  // Muutetaan paino kiloiksi.
   const convertWeightToKilograms = (weight) => {
     return (weight / 10).toFixed(2); 
   };
