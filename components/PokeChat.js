@@ -4,6 +4,7 @@ import { initializeApp } from 'firebase/app';
 import { getDatabase, push, ref, onChildAdded } from 'firebase/database';
 import * as SMS from 'expo-sms';
 
+// Firebase-konfiguraatio
 const firebaseConfig = {
     apiKey: "AIzaSyCYkNraCBVHEWcP8oqRUm27qH2BFr8pEfw",
     authDomain: "pokemon-95e84.firebaseapp.com",
@@ -21,6 +22,7 @@ const PokeChat = ({ navigation }) => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
 
+  // Haetaan Firebase-tietokannasta uudet viestit 'chat'-hakemistosta ja lisätään ne komponentin tilaan. Suoritetaan vain kerran komponentin ensimmäisellä renderöinnillä.
   useEffect(() => {
     const chatRef = ref(database, 'chat');
     onChildAdded(chatRef, (snapshot) => {
@@ -29,6 +31,7 @@ const PokeChat = ({ navigation }) => {
     });
   }, []);
 
+  // Lähetetään uusi viesti Firebase-tietokannan 'chat'-hakemistoon, jos viesti ei ole tyhjä. Syötekenttä tyhjäksi.
   const sendMessage = async () => {
     if (message.trim() !== '') {
       const chatRef = ref(database, 'chat');
@@ -38,6 +41,7 @@ const PokeChat = ({ navigation }) => {
       });
       setMessage('');
 
+      // Tarkistetaan, onko laitteen tekstiviestipalvelu käytettävissä, muuten avataan laitteen oletusviestisovellus viestiluonnoksella.
       const isAvailable = await SMS.isAvailableAsync();
       if (isAvailable) {
         await SMS.sendSMSAsync([], message);
