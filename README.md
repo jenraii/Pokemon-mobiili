@@ -8,7 +8,7 @@ Kirjasto, joka mahdollistaa komponenttipohjaisen kehittämisen. Sovellus käytt�
 ### React Native: 
 Alusta, joka mahdollistaa mobiilisovellusten kehittämisen JavaScriptillä ja Reactilla. Se mahdollistaa sovelluksen ajamisen sekä iOS- että Android-laitteilla.
 ### Linking API: 
-React Nativessa on Linking-API, jota käytetään avamaan ulkoisia linkkejä. Tässä projektissa sitä käytetään avamaan puhelimen oletusviestisovellus valmiiksi täytetyllä viestillä.
+React Nativessa on Linking-API, jota käytetään avamaan ulkoisia linkkejä. Tässä projektissa sitä käytetään avamaan puhelimen oletusviestisovellus valmiiksi täytetyllä viestillä. Kyseinen moduuli on koodisarja, jonka avulla React Native voi olla vuorovaikutuksessa laitteen alkuperäisen ympäristön kanssa.
 
 ## State Management
 
