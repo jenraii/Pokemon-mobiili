@@ -51,6 +51,18 @@ const PokeChat = ({ navigation }) => {
     }
   };
 
+  // Poistetaan viesti Firebase-tietokannasta sen avaimen perusteella ja päivitetään sovelluksen tila poistamalla viesti myös sovelluksen viestilistalta.
+  const deleteMessage = (key) => {
+    const chatRef = ref(database, `chat/${key}`);
+    remove(chatRef)
+      .then(() => {
+        setMessages(prevMessages => prevMessages.filter(msg => msg.key !== key));
+      })
+      .catch(error => {
+        console.error('Error removing message:', error);
+      });
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>PokeChat</Text>
@@ -68,9 +80,14 @@ const PokeChat = ({ navigation }) => {
         renderItem={({ item }) => (
           <View style={styles.messageContainer}>
             <Text style={styles.messageText}>{item.text}</Text>
+            <Button
+              title="Delete"
+              color="red"
+              onPress={() => deleteMessage(item.key)}
+            />
           </View>
         )}
-        keyExtractor={(item) => item.timestamp.toString()}
+        keyExtractor={(item) => item.key}
       />
     </View>
   );
