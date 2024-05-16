@@ -56,5 +56,3 @@ Lähettää tekstiviestin.
 
 ## React Navigation
 Kirjasto, joka mahdollistaa navigoinnin sovelluksen eri näkymien välillä.
-
-Yhteenvetona tämä React Native -projekti hyödyntää monia erilaisia teknologioita, jotka yhdessä mahdollistavat pokemon-tietojen hakemisen PokeAPI:sta, tallentamisen Firebase-tietokantaan ja käyttäjän hallinnan sovelluksen sisällä.
