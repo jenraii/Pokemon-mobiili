@@ -36,7 +36,7 @@ const MyPokemon = ({ navigation }) => {
     });
   }, []);
 
-  // Tallentaan uuden pokemonin nimen ja tyypin Firebase-tietokantaan, jos molemmat kentät ovat täytettyinä. Syötekenttä tyhjäksi.
+  // Tallentaan uuden pokemonin nimen ja tyypin Firebase-tietokantaan, jos molemmat kentät ovat täytettyinä. Syötekentät tyhjäksi.
   const savePokemon = () => {
     if (pokemon && type) {
       const pokemonRef = ref(database, 'pokemon/');
